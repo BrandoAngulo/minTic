@@ -4,10 +4,15 @@ cantidad = float(input());
 valUndPro = float(input());
 iva = 0.19;
 # valor producto sin iva
-valpro = (valUndPro * cantidad);
+valPro = (valUndPro * cantidad);
 # valor producto mas iva
-proFinal = (valpro * iva) + valpro;
+proFinal = (valPro * iva) + valPro;
 
-mensaje = (f'Codigo: {codPro}\nNombre: {namePro} \nValour unitario sin iva: {valpro} \nPrecio con iva: ${proFinal}');
-print(mensaje);
+#print(codPro,namePro,valpro,proFinal);
+print(codPro);
+print(namePro);
+print(valPro);
+print(proFinal);
+#mensaje = (f'{codPro}\n{namePro}\n{valpro}\n{proFinal}');
+#print(mensaje);
 

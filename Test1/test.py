@@ -1,0 +1,11 @@
+codPro = int(input());
+namePro = str(input());
+cantidad = float(input());
+valUndPro = float(input());
+iva = 0.19;
+valPro = (valUndPro * cantidad);
+proFinal = (valPro*iva)+valPro;
+print(codPro);
+print(namePro);
+print(valPro);
+print(proFinal);
