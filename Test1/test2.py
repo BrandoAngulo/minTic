@@ -12,18 +12,62 @@ Tipo de IVA, que puede ser:
 3: General, donde se aplica como IVA el 19%
 El gerente de la tienda desea que a través de un programa se calcule, para cada producto, el valor del producto, que corresponde a la cantidad comprada por el valor unitario, el valor del IVA y el valor final del producto, que corresponde a la suma del valor del producto más el valor de IVA. Además, se desea conocer el valor total de la compra, es decir, la suma de los N productos (tomando el valor final del producto, es decir con IVA aplicado) y el valor total de IVA de la compra (La suma del valor de IVA de los N productos)
 
- 
-
 Para este Reto, con la información suministrada se solicita resolver la situación problema, generando como salida, para cada uno de los N productos, el código del producto, nombre del producto, valor del producto sin aplicar IVA y el valor final del producto, una vez aplicada el IVA, el valor total de la compra, sumando el valor final de los N productos y el valor total de IVA, sumando el valor de IVA de los N productos
 
- 
-
 Recomendaciones importantes:
-
 El orden en la entrada de la información al programa es tal y como se suministra, es decir, primero la cantidad de productos (N, como dato entero)), luego para cada producto se ingresa el código del artículo como dato entero, nombre del producto, la cantidad comprada como dato flotante, el valor unitario como dato flotante y finalmente el tipo de IVA aplicar al producto (1,2 o 3)
 En las instrucciones de lectura y escritura (input y print) no utilizar mensajes, debido a que el programa se comprobará a través de datos de prueba.
 Ejemplos: codigo=int(input())
-
-                             print(codigo)   
+ print(codigo)   
 
 El método de comprobación es a través de casos de prueba, ya definidos en plataforma, que validarán la eficacia del programa. """
+
+n = int(input()); #Cantidad de productos en existencia
+code = int(input());  #Codigo del producto
+name = str(input());  # Nombre del producto
+cantBuy = float(input());  # Cantidad comprada de productos
+costo = float(input()); # Costo unitario del producto
+typeIva = int(input()); # 1 = excento 2 = bienes 3 = IVA
+priceUnd = cantBuy * costo;  # precio sin iva del producto
+iva = (priceUnd * 19) / 100;
+assets = (priceUnd * 5) / 100;  # bienes
+
+if typeIva == 3:
+    priceFinalProduct = priceUnd + iva;
+    totalIva = iva*n;
+    total = priceFinalProduct * n;
+    print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}\n{totalIva}');
+    print("______");
+    """ print(code); 
+    print(name);
+    print(priceUnd);
+    print(priceFinalProduct);
+    print(total);
+    print(totalIva); """
+elif typeIva == 2:
+    priceFinalProduct = priceUnd + assets;
+    total = priceFinalProduct * n;
+    totalIva = assets * n;
+    print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}\n{totalIva}');
+    """ print("______");
+    print(code); 
+    print(name);
+    print(priceUnd);
+    print(priceFinalProduct);
+    print(total);
+    print(totalIva); """
+elif typeIva == 1:
+    priceFinalProduct = priceUnd;
+    excento = priceUnd *n;
+    print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{excento}');
+    """ print("______");
+    print(code); 
+    print(name);
+    print(priceUnd);
+    print(priceFinalProduct);
+    print(excento); """
+
+
+
+
+
