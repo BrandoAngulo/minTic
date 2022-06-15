@@ -26,6 +26,7 @@ n = int(input()); #Cantidad de productos en existencia
 #global sumaIva,sumaProduct
 sumaIva = 0;
 sumaProduct = 0;
+excento = True;
 for i in range(n): 
     code = int(input());  #Codigo del producto
     name = str(input());  # Nombre del producto
@@ -35,6 +36,7 @@ for i in range(n):
     priceUnd = cantBuy * costo;  # precio sin iva del producto
     iva = (priceUnd * 19) / 100;
     assets = (priceUnd * 5) / 100;  # bienes
+    
   
     if typeIva == 3: 
         priceFinalProduct = priceUnd + iva;
@@ -62,6 +64,7 @@ for i in range(n):
         print(totalIva); """
     elif typeIva == 1:
         priceFinalProduct = priceUnd;
+        totalIva = 0;
         total = priceUnd *cantBuy;
         print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}');
         """ print("______");
@@ -70,8 +73,13 @@ for i in range(n):
         print(priceUnd);
         print(priceFinalProduct);
         print(excento); """
-    sumaProduct += total #+ total + excento; 
-    sumaIva += totalIva #+ totalIva;
+        #sumaProduct+=total;
+        #excento = False;
+        #print(excento);
+        
+    if  excento == True:
+        sumaProduct += total #+ total + excento; 
+        sumaIva += totalIva #+ totalIva;
     
 print("Fin");
 print(f'Precio total productos = {sumaProduct}\nPrecio total Iva ={sumaIva}');
