@@ -23,51 +23,56 @@ Ejemplos: codigo=int(input())
 El método de comprobación es a través de casos de prueba, ya definidos en plataforma, que validarán la eficacia del programa. """
 
 n = int(input()); #Cantidad de productos en existencia
-code = int(input());  #Codigo del producto
-name = str(input());  # Nombre del producto
-cantBuy = float(input());  # Cantidad comprada de productos
-costo = float(input()); # Costo unitario del producto
-typeIva = int(input()); # 1 = excento 2 = bienes 3 = IVA
-priceUnd = cantBuy * costo;  # precio sin iva del producto
-iva = (priceUnd * 19) / 100;
-assets = (priceUnd * 5) / 100;  # bienes
-
-if typeIva == 3:
-    priceFinalProduct = priceUnd + iva;
-    totalIva = iva*n;
-    total = priceFinalProduct * n;
-    print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}\n{totalIva}');
-    print("______");
-    """ print(code); 
-    print(name);
-    print(priceUnd);
-    print(priceFinalProduct);
-    print(total);
-    print(totalIva); """
-elif typeIva == 2:
-    priceFinalProduct = priceUnd + assets;
-    total = priceFinalProduct * n;
-    totalIva = assets * n;
-    print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}\n{totalIva}');
-    """ print("______");
-    print(code); 
-    print(name);
-    print(priceUnd);
-    print(priceFinalProduct);
-    print(total);
-    print(totalIva); """
-elif typeIva == 1:
-    priceFinalProduct = priceUnd;
-    excento = priceUnd *n;
-    print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{excento}');
-    """ print("______");
-    print(code); 
-    print(name);
-    print(priceUnd);
-    print(priceFinalProduct);
-    print(excento); """
-
-
-
-
-
+#global sumaIva,sumaProduct
+sumaIva = 0;
+sumaProduct = 0;
+for i in range(n): 
+    code = int(input());  #Codigo del producto
+    name = str(input());  # Nombre del producto
+    cantBuy = float(input());  # Cantidad comprada de productos
+    costo = float(input()); # Costo unitario del producto
+    typeIva = int(input()); # 1 = excento 2 = bienes 3 = IVA
+    priceUnd = cantBuy * costo;  # precio sin iva del producto
+    iva = (priceUnd * 19) / 100;
+    assets = (priceUnd * 5) / 100;  # bienes
+  
+    if typeIva == 3: 
+        priceFinalProduct = priceUnd + iva;
+        totalIva = iva*cantBuy;
+        total = priceFinalProduct * cantBuy;
+        print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}\n{totalIva}');
+        """print("______");
+        print(code); 
+        print(name);
+        print(priceUnd);
+        print(priceFinalProduct);
+        print(total);
+        print(totalIva); """
+    elif typeIva == 2:
+        priceFinalProduct = priceUnd + assets;
+        totalIva = assets * cantBuy;
+        total = priceFinalProduct * cantBuy;
+        print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}\n{totalIva}');
+        """ print("______");
+        print(code); 
+        print(name);
+        print(priceUnd);
+        print(priceFinalProduct);
+        print(total);
+        print(totalIva); """
+    elif typeIva == 1:
+        priceFinalProduct = priceUnd;
+        total = priceUnd *cantBuy;
+        print(f'{code}\n{name}\n{priceUnd}\n{priceFinalProduct}\n{total}');
+        """ print("______");
+        print(code); 
+        print(name);
+        print(priceUnd);
+        print(priceFinalProduct);
+        print(excento); """
+    sumaProduct += total #+ total + excento; 
+    sumaIva += totalIva #+ totalIva;
+    
+print("Fin");
+print(f'Precio total productos = {sumaProduct}\nPrecio total Iva ={sumaIva}');
+    
