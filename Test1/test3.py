@@ -6,36 +6,38 @@ listName=[];
 listCantBuy=[];
 listCosto=[];
 listTypeIva=[];
+listpriceTsin = []
 for i in range(n):
-    code = 1205 #int(input());
+    code = int(input());
     listCode.append(code);
-    name = "balde"#input();
+    name = input();
     listName.append(name);
-    cantBuy = 2 #float(input());  
+    cantBuy = float(input());  
     listCantBuy.append(cantBuy);
-    costo = 1500 #float(input());
+    costo = float(input());
     listCosto.append(costo);  
     typeIva =  int(input());
     listTypeIva.append(typeIva); 
-    priceTsin = cantBuy * costo;   
+    listpriceTsin.append(listCantBuy[i] * listCosto[i])
 for j in range(n):
     print(f'{listCode[j]} {listName[j]}');
-    if typeIva == 1:
-        totalProducts = priceTsin;
-        total = priceTsin *cantBuy;
-        print(total);
-    elif typeIva == 2:
-        assets = (costo * 5)/100;  
-        ProductAssets = costo + assets;
-        totalProducts = ProductAssets*cantBuy;
-        totalIva = assets * cantBuy;
-        print(totalProducts);
-    elif typeIva == 3:
-        iva = (costo * 19)/100; 
-        ProductIva = costo+iva;
-        totalProducts = ProductIva*cantBuy;
-        totalIva = iva*cantBuy;
-        print(totalProducts);
+    if listTypeIva[j] == 1:
+        totalProducts = listpriceTsin[j];
+        total = listpriceTsin[j] *listCantBuy[j];
+        totalIva= 0;
+        print(f'{total} {totalProducts}');
+    elif listTypeIva[j] == 2:
+        assets = (listCosto[j] * 5)/100;  
+        ProductAssets = listCosto[j] + assets;
+        totalProducts = ProductAssets*listCantBuy[j];
+        totalIva = assets * listCantBuy[j];
+        print(f'{totalProducts} {listpriceTsin[j]}');
+    elif listTypeIva[j] == 3:
+        iva = (listCosto[j] * 19)/100; 
+        ProductIva = listCosto[j]+iva;
+        totalProducts = ProductIva*listCantBuy[j];
+        totalIva = iva*listCantBuy[j];
+        print(f'{totalProducts} {listpriceTsin[j]}');
     sumaIva += totalIva;
     sumaProduct += totalProducts;
 print(f'{len(listCode)}\n{len(listName)}\n{len(listCantBuy)}\n{len(listCosto)}\n{len(listTypeIva)}');
