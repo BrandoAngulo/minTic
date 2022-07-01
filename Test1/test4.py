@@ -1,0 +1,1 @@
+"""  Sin embargo, como requerimiento especial de salida, la información se debe imprimir ordenada alfabéticamente por el nombre del producto. También se especifica que se puede utilizar cualquier método de ordenamiento, pero debe estar programado a través de una función. """
